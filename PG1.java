@@ -84,7 +84,7 @@ public class PG1 {
             
        // Assume driver is a valid WebDriver instance that
        // has been properly instantiated elsewhere.
-        WebElement element = driver.findElement(By.name("redBtn"));    
+        WebElement element2 = driver.findElement(By.name("redBtn"));    
        // executor.executeScript("arguments[0].click();", element);
             executor.executeScript("document.getElementById('redBtn').click();");
                              
