@@ -60,7 +60,7 @@ public class PG1 {
       System.out.println("Before reading - actualCol is: " + actualCol);
                        
         // get the actual value of col
-      //  actualCol = driver.findElement(By.id("col")).getText();
+      actualCol = driver.findElement(By.id("col")).getText();
      // actualCol =  executor.executeScript("document.getElementById('col').value").toString(); 
       //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
