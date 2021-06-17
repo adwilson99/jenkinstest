@@ -41,6 +41,8 @@ public class PG1 {
        String expectedCol = "You clicked green";
        String actualCol = "Default Value";
       
+       JavascriptExecutor executor = (JavascriptExecutor)driver;
+             
       //launch chrome and direct it to the base URL
         driver.get(baseUrl);
             
@@ -49,8 +51,7 @@ public class PG1 {
         
         // Assume driver is a valid WebDriver instance that
         // has been properly instantiated elsewhere.
-        WebElement element = driver.findElement(By.id("grnBtn"));    
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        WebElement element = driver.findElement(By.name("grnBtn"));    
         executor.executeScript("arguments[0].click();", element);
             
       System.out.println("Before reading - actualCol is: " + actualCol);
