@@ -77,7 +77,7 @@ public class PG1 {
      //       System.out.println("got this far");
      //   String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
-      System.out.println("actualCol is: " + actualCol);
+      System.out.println("actualCol is: #" + actualCol + "#");
 
       // print the result
       if (actualCol.contentEquals(expectedCol)){
