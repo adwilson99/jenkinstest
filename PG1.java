@@ -3,7 +3,7 @@ package newproject;
 // Modififed for firefox as can't get chrome working
 
 import java.io.IOException;
-//import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 //import org.openqa.selenium.chrome.ChromeOptions;
 //import org.openqa.selenium.chrome.ChromeDriver;
