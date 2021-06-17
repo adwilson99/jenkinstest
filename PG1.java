@@ -67,8 +67,10 @@ public class PG1 {
          webForm.sendKeys("Yellow");
             
               System.out.println("got this far");
-            
-    actualCol = executor.executeScript("document.getElementById('col').value").toString();
+
+        actualCol = driver.findElement(By.id("col")).getText();
+      
+    //actualCol = executor.executeScript("document.getElementById('col').value").toString();
       //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
      // WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
