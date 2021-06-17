@@ -68,8 +68,8 @@ public class PG1 {
             
               System.out.println("got this far");
 
-        actualCol = driver.findElement(By.id("col")).getText();
-      
+        actualCol = driver.findElement(By.id("col")).getAttribute("value");
+           
     //actualCol = executor.executeScript("document.getElementById('col').value").toString();
       //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
