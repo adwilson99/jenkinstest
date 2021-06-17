@@ -39,7 +39,7 @@ public class PG1 {
       // Test Case Vairables
        String baseUrl = "http://34.87.187.29:8000/hello.html";
        String expectedCol = "You clicked green";
-       String actualCol = "";
+       String actualCol = "Default Value";
       
       //launch chrome and direct it to the base URL
         driver.get(baseUrl);
@@ -49,7 +49,7 @@ public class PG1 {
         
         // Assume driver is a valid WebDriver instance that
         // has been properly instantiated elsewhere.
-        WebElement element = driver.findElement(By.id("grnBtn"));
+        WebElement element = driver.findElement(By.id("grnBtn"));    
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
                        
