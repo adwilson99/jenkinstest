@@ -72,6 +72,7 @@ public class PG1 {
      //   String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
       System.out.println("actualCol is: '" + actualCol + "'");
+      System.out.println("colour is: '" + driver.findElement(By.id("col")).getCssValue("background-color") + "'");
 
       // print the result
       if (actualCol.contentEquals(expectedCol)){
