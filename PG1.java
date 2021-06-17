@@ -59,6 +59,7 @@ public class PG1 {
                        
         // get the actual value of col
         actualCol = driver.findElement(By.id("col")).getText();
+      actualCol =  executor.executeScript("document.getElementById("col").value();").toString(); 
             
       System.out.println("actualCol is: " + actualCol);
 
