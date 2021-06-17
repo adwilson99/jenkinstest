@@ -52,6 +52,8 @@ public class PG1 {
         WebElement element = driver.findElement(By.id("grnBtn"));    
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);
+            
+      System.out.println("Before reading - actualCol is: " + actualCol);
                        
         // get the actual value of col
         actualCol = driver.findElement(By.id("col")).getText();
