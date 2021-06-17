@@ -63,9 +63,9 @@ public class PG1 {
       //actualCol = driver.findElement(By.id("col")).getText();
             
   //      executor.executeScript("document.getElementById('col').value='ABC';");       
-         WebElement webForm = driver.findElement(By.id("col"));    
+         //WebElement webForm = driver.findElement(By.id("col"));    
             
-    actualCol = webForm.executeScript("document.getElementById('col').value").toString();
+    actualCol = executor.executeScript("document.getElementById('col').value").toString();
       //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
      // WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
