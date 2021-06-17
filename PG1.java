@@ -44,6 +44,8 @@ public class PG1 {
         driver.get(baseUrl);
         // get the actual value of col
         actualCol = driver.findElement(By.id("col")).getText();
+            
+      System.out.println("actualCol is: ", actualCol);
 
       // print the result
       if (actualCol.contentEquals(expectedCol)){
