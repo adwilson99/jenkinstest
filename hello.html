@@ -4,9 +4,14 @@
         <script type = "text/javascript">
 
         function myFunction(clr) {
-                
-                document.getElementById('col').style.backgroundColor = "red";
-                document.getElementById('col').value="You clicked red";
+               
+                if (clr == "Red") {
+                        document.getElementById('col').style.backgroundColor = "red";
+                        document.getElementById('col').value="You clicked red";
+                } else {
+                        document.getElementById('col').style.backgroundColor = "green";
+                        document.getElementById('col').value="You clicked green";
+                }
 }
 
 </script>
@@ -18,7 +23,7 @@
 <hr>
 <p>Pick a colour: </p>
 <br>
-<button onclick="getElementById('col').value='You clicked green'">Green</button>
+<button onclick="myFunction('Green')">Green</button>
 <br>
 <button onclick="myFunction('Red')">Red</button>
 <hr>
