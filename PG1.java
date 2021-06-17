@@ -42,6 +42,11 @@ public class PG1 {
       
       //launch chrome and direct it to the base URL
         driver.get(baseUrl);
+            
+      //Click the green button.
+      driver.findElement(By.id("grnBtn")).click();
+
+            
         // get the actual value of col
         actualCol = driver.findElement(By.id("col")).getText();
             
