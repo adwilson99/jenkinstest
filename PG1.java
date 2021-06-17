@@ -44,9 +44,14 @@ public class PG1 {
         driver.get(baseUrl);
             
       //Click the green button.
-      driver.findElement(By.id("grnBtn")).click();
-
-            
+      //driver.findElement(By.id("grnBtn")).click();
+        
+        // Assume driver is a valid WebDriver instance that
+        // has been properly instantiated elsewhere.
+        WebElement element = driver.findElement(By.id("grnBtn"));
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element);
+                       
         // get the actual value of col
         actualCol = driver.findElement(By.id("col")).getText();
             
