@@ -60,9 +60,13 @@ public class PG1 {
         // get the actual value of col
       //  actualCol = driver.findElement(By.id("col")).getText();
      // actualCol =  executor.executeScript("document.getElementById('col').value").toString(); 
-      actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
+      //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
-      System.out.println("actualCol is: " + actualCol);
+      WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
+            System.out.println("got this far");
+        String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
+            
+      System.out.println("actualCol is: " + value);
 
       // print the result
       if (actualCol.contentEquals(expectedCol)){
