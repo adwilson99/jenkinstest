@@ -41,6 +41,7 @@ public class PG1 {
       // Test Case Vairables
        String baseUrl = "http://34.87.187.29:8000/hello.html";
        String expectedCol = "You clicked green";
+       String expectedCol2 = "You clicked red";
        String actualCol = "Default Value";
       
        JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -48,17 +49,15 @@ public class PG1 {
       //launch chrome and direct it to the base URL
         driver.get(baseUrl);
             
-      //Click the green button.
-      //driver.findElement(By.id("grnBtn")).click();
-        
-        // Assume driver is a valid WebDriver instance that
-        // has been properly instantiated elsewhere.
+   // FIRST TEST CLICK ON GREEN   
+  System.out.println("RUNNING TEST 1: Click on Green");
+            
+       // Assume driver is a valid WebDriver instance that
+       // has been properly instantiated elsewhere.
         WebElement element = driver.findElement(By.name("grnBtn"));    
        // executor.executeScript("arguments[0].click();", element);
             executor.executeScript("document.getElementById('grnBtn').click();");
-            
-      System.out.println("Before reading - actualCol is: " + actualCol);
-                       
+                             
         // get the actual value of col
       //actualCol = driver.findElement(By.id("col")).getText();
                       
@@ -71,7 +70,7 @@ public class PG1 {
      //       System.out.println("got this far");
      //   String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
-      System.out.println("actualCol is: #" + actualCol + "#");
+      System.out.println("actualCol is: '" + actualCol + "'");
 
       // print the result
       if (actualCol.contentEquals(expectedCol)){
@@ -80,6 +79,36 @@ public class PG1 {
             System.out.println("Test Failed");
       }
     
+  // SECOND TEST CLICK ON GREEN   
+  System.out.println("RUNNING TEST 2: Click on Red");
+            
+       // Assume driver is a valid WebDriver instance that
+       // has been properly instantiated elsewhere.
+        WebElement element = driver.findElement(By.name("redBtn"));    
+       // executor.executeScript("arguments[0].click();", element);
+            executor.executeScript("document.getElementById('redBtn').click();");
+                             
+        // get the actual value of col
+      //actualCol = driver.findElement(By.id("col")).getText();
+                      
+        actualCol = driver.findElement(By.id("col")).getAttribute("value");
+           
+    //actualCol = executor.executeScript("document.getElementById('col').value").toString();
+      //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
+            
+     // WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
+     //       System.out.println("got this far");
+     //   String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
+            
+      System.out.println("actualCol is: '" + actualCol + "'");
+
+      // print the result
+      if (actualCol.contentEquals(expectedCol2)){
+            System.out.println("Test Passed!");
+      } else {
+            System.out.println("Test Failed");
+      }            
+            
       // close chrome / firefox browser
       driver.close();
   }
