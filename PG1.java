@@ -61,7 +61,11 @@ public class PG1 {
                        
         // get the actual value of col
       //actualCol = driver.findElement(By.id("col")).getText();
-    actualCol = executor.executeScript("document.getElementById('col').value").toString();
+            
+  //      executor.executeScript("document.getElementById('col').value='ABC';");       
+         WebElement webForm = driver.findElement(By.id("col"));    
+            
+    actualCol = webForm.executeScript("document.getElementById('col').value").toString();
       //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
             
      // WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
