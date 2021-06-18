@@ -2,30 +2,27 @@
 
 <Head>
         <script type = "text/javascript">
-
-        function myFunction(clr) {
+                function myFunction(clr) {
                
-                if (clr == "Red") {
-                        document.getElementById('col').style.backgroundColor = "red";
-                        document.getElementById('col').value="You clicked red";
-                } else {
-                        document.getElementById('col').style.backgroundColor = "green";
-                        document.getElementById('col').value="You clicked green";
-                }
-}
-
+                        if (clr == "Red") {
+                                document.getElementById('col').style.backgroundColor = "red";
+                                document.getElementById('col').value="You clicked red";
+                        } else {
+                                document.getElementById('col').style.backgroundColor = "green";
+                                document.getElementById('col').value="You clicked green";
+                        }
+        }
 </script>
+        
         <Title>Test Page</Title></Head>
 <Body><CENTER><H1>Hello World!</H1>
-
-
         
 <hr>
 <p>Pick a colour: </p>
 <br>
-<button id="grnBtn" name="grnBtn" onclick="myFunction('Green')">Green</button>
+        <p><button id="grnBtn" name="grnBtn" onclick="myFunction('Green')">Green</button></p>
 <br>
-<button id="redBtn" name="redBtn" onclick="myFunction('Red')">Red</button>
+        <p><button id="redBtn" name="redBtn" onclick="myFunction('Red')">Red</button></p>
 <hr>
 <input id="col" name="col"></input>
 <br>
