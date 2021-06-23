@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Build') {
+            steps {
+                echo 'Downloading new code from GitHub'
+                sh '''
+                    cd /home/adwilson99/code2/jenkinstest
+                    git pull https://adwilson99:xxxxxx@github.com/adwilson99/jenkinstest
+                '''
+            }
+        }
+        
+        stage('CodeCheck') {
+            steps {
+                echo 'Scanning Code via SonarQube'
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    cd /home/adwilson99/code
+                    /opt/sonar-scanner/bin/sonar-scanner   -Dsonar.projectKey=jenkinsTest1   -Dsonar.sources=/home/adwilson99/code/  -Dsonar.host.url=http://nnn.nnn.nnn.nnn   -Dsonar.login=xxxx
+                    '''
+                }
+            }
+        }
+        
+        
+        stage("UnitTest") {
+            steps {
+                echo 'Testing only'
+            }
+        }
+        
+        stage('e2e Integration Test') {
+            steps {
+                echo 'Compiling new test scripts'
+                sh '''
+                    cd /home/adwilson99/code2/jenkinstest
+                    export CLASSPATH=".:/home/adwilson99/selenium-server-standalone-3.13.0.jar:/home/adwilson99/libs/*.jar"
+                    java PG1.java
+                '''
+            }
+        }
+        
+        stage("Deploy") {
+            steps {
+                echo 'Deploy'
+                
+            }
+        }
+    }
+}
