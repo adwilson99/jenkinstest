@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.Keys;
 //import org.openqa.selenium.chrome.ChromeOptions;
 //import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,94 +20,64 @@ import org.openqa.selenium.JavascriptExecutor;
 public class PG1 {
         
     public static void main(String[] args) {
-
-//      ChromeOptions options = new ChromeOptions();
-        
-//      options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-//      options.addArguments("--no-sandbox"); // Bypass OS security model
       
-      // declaration and instantiation of objects/variables
-//      System.setProperty("webdriver.gecko.driver","chromedriver");
- FirefoxBinary firefoxBinary = new FirefoxBinary();
- firefoxBinary.addCommandLineOptions("--headless");
- firefoxBinary.addCommandLineOptions("--no-sandbox");
- System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
- FirefoxOptions firefoxOptions = new FirefoxOptions();
- firefoxOptions.setBinary(firefoxBinary);
- FirefoxDriver driver = new FirefoxDriver(firefoxOptions);
+        // declaration and instantiation of objects/variables
+        FirefoxBinary firefoxBinary = new FirefoxBinary();
+        firefoxBinary.addCommandLineOptions("--headless");
+        firefoxBinary.addCommandLineOptions("--no-sandbox");
+        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setBinary(firefoxBinary);
+        FirefoxDriver driver = new FirefoxDriver(firefoxOptions);
             
- //           WebDriver driver = new ChromeDriver(options);
-            
-            
+        // Test Case Vairables
+        String baseUrl = "http://34.87.187.29:8000/hello.html";
+        String expectedCol = "You clicked green";
+        String expectedCol2 = "You clicked red";
+        String actualCol = "Default Value";
       
-      // Test Case Vairables
-       String baseUrl = "http://34.87.187.29:8000/hello.html";
-       String expectedCol = "You clicked green";
-       String expectedCol2 = "You clicked red";
-       String actualCol = "Default Value";
-      
-       JavascriptExecutor executor = (JavascriptExecutor)driver;
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
              
-      //launch chrome and direct it to the base URL
+        //launch chrome and direct it to the base URL
         driver.get(baseUrl);
             
-   // FIRST TEST CLICK ON GREEN   
-  System.out.println("RUNNING TEST 1: Click on Green");
+         
+            
+        // FIRST TEST CLICK ON GREEN   
+        System.out.println("RUNNING TEST 1: Click on Green");
             
        // Assume driver is a valid WebDriver instance that
        // has been properly instantiated elsewhere.
         WebElement element = driver.findElement(By.name("grnBtn"));    
-       // executor.executeScript("arguments[0].click();", element);
-            executor.executeScript("document.getElementById('grnBtn').click();");
+        executor.executeScript("document.getElementById('grnBtn').click();");
                              
         // get the actual value of col
-      //actualCol = driver.findElement(By.id("col")).getText();
-                      
         actualCol = driver.findElement(By.id("col")).getAttribute("value");
-           
-    //actualCol = executor.executeScript("document.getElementById('col').value").toString();
-      //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
-            
-     // WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
-     //       System.out.println("got this far");
-     //   String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
-            
-      System.out.println("actualCol is: '" + actualCol + "'");
-      System.out.println("colour is: '" + driver.findElement(By.id("col")).getCssValue("background-color") + "'");
+                  
+        System.out.println("actualCol is: '" + actualCol + "'");
+        System.out.println("colour is: '" + driver.findElement(By.id("col")).getCssValue("background-color") + "'");
 
-      // print the result
-      if (actualCol.contentEquals(expectedCol)){
+        // print the result
+        if (actualCol.contentEquals(expectedCol)){
             System.out.println("Test Passed!");
-      } else {
+        } else {
             System.out.println("Test Failed");
-      }
+        }
     
-  // SECOND TEST CLICK ON GREEN   
-  System.out.println("RUNNING TEST 2: Click on Red");
+        // SECOND TEST CLICK ON GREEN   
+        System.out.println("RUNNING TEST 2: Click on Red");
             
        // Assume driver is a valid WebDriver instance that
        // has been properly instantiated elsewhere.
         WebElement element2 = driver.findElement(By.name("redBtn"));    
-       // executor.executeScript("arguments[0].click();", element);
             executor.executeScript("document.getElementById('redBtn').click();");
                              
-        // get the actual value of col
-      //actualCol = driver.findElement(By.id("col")).getText();
-                      
+        // get the actual value of col                
         actualCol = driver.findElement(By.id("col")).getAttribute("value");
            
-    //actualCol = executor.executeScript("document.getElementById('col').value").toString();
-      //actualCol = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
-            
-     // WebElement myElem = new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("col")));
-     //       System.out.println("got this far");
-     //   String value = ((JavascriptExecutor)driver).executeScript("document.getElementById('col').value").toString();
-            
       System.out.println("actualCol is: '" + actualCol + "'");
       System.out.println("colour is: '" + driver.findElement(By.id("col")).getCssValue("background-color") + "'");
-                         
-                         //getAttribute("style.backgroundColor") + "'");
-
+     
       // print the result
       if (actualCol.contentEquals(expectedCol2)){
             System.out.println("Test Passed!");
