@@ -31,7 +31,7 @@ public class PG1 {
         FirefoxDriver driver = new FirefoxDriver(firefoxOptions);
             
         // Test Case Vairables
-        String baseUrl = "http://34.87.187.29:8000/hello.html";
+        String baseUrl = "http://35.240.184.179/:8000/hello.html";
         String expectedCol = "You clicked green";
         String expectedCol2 = "You clicked red";
         String actualCol = "Default Value";
